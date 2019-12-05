@@ -1,0 +1,57 @@
+Comandos Básicos desde CMD
+
+- Actualizar PIP --> python -m pip install -U pip
+- Instalación del entorno virtual --> pip install virtualenv
+
+Ir a la ruta de los proyectos en el PC --> (C:\wamp64\www o C:\xampp\htdocs) para crear el entorno virtual
+
+- Crear el Entorno Virtual con el nombre deseado --> virtualenv NOMBREPROYECTO
+- Activar Entorno Virtual --> .\Scripts\activate
+- Consultar lista de comandos de DJANGO --> python .\Scripts\django-admin.py
+- Creación del proyecto en DJANGO --> python .\Scripts\django-admin.py startproject src
+- Encender el servidor local --> python manage.py runserver (desde src o app)
+- Ruta de acceso --> http://127.0.0.1:8000/ - Administración http://127.0.0.1:8000/admin
+- Instalación de PYMONGO --> python -m pip install pymongo –user (Desde src o app con el entorno virtual desactivado)
+- Instalación de DNS MONGOPY --> pip install dnspython (Desde el entorno virtual encendido)
+- Instalación del Framework DJONGO --> pip install djongo
+- Realizar migración desde app --> python manage.py migrate 
+	(settings.py debe de estar editado correctamente, con nombres dentro de comillas)
+	(si sale algún errorr de ejecución, se debe de revisar que en los servicios desde administrador de tareas, mongo 	esté en "Ejecución" y no "Detenido")
+
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'MaoPyWebApp',
+        'HOST': 'mongodb://localhost:27017/MaoPyWebApp',
+    }
+}
+
+- CREAR EL SUPER USUARIO DESDE LA CONSOLA: --> python manage.py createsuperuser
+
+Username (leave blank to use 'mauro'):
+Email address: maomon6@gmail.com
+Password:
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]:
+Password:
+Password (again):
+Superuser created successfully.
+
+mis datos ingresados (mauro/sameLaura)
+
+- Probar conexión --> 127.0.0.1:8000/admin
+- Crear módulos --> python manage.py startapp HojadeVida (Hoja de Vida es el nomobre que escogí)
+
+
+- Migrar a la base de datos --> python manage.py makemigrations
+- Migrar colecciones del super usuario --> python manage.py migrate
+
+- Instalar Librerías adicionales --> 
+	pip install Pillow
+	pip install pylint-django
+	pip install django-ckeditor
